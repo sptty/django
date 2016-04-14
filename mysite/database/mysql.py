@@ -1,8 +1,10 @@
 # -*- coding:utf-8 -*-
 __author__ = 'sptty'
 
-from django.shortcuts import render_to_response
 import MySQLdb
+
+from django.shortcuts import render_to_response
+
 
 def book_list(request):
     db = MySQLdb.connect(user='sptty',db='db1',passwd='123',host='localhost')
