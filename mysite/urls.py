@@ -25,8 +25,6 @@ urlpatterns = patterns('',('^hello/$',hello),
                        ('^$',home_page),
                        ('^another-html/$',nowtime),
                        (r'^html/plus/(\d{1,2})/$',offset_time),
-                       # ('^admin/$',admin),
+                       #  ('^admin$',admin),
                        )
-
-
 
