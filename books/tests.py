@@ -2,19 +2,20 @@
 import os
 # Create your tests here.
 
-__author__ = 'sptty'
-
-
 from books.models import Publisher
-from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
-
-application = get_wsgi_application()
-
+'''
 try:
     p = Publisher.objects.get(name='sptty')
 except Publisher.DoesNotExist:
-    print 'sptty is not in the database yet.'
+    print('sptty is not in the database yet.')
 else:
-    print p
+    print(p)
+'''
+from books.models import Publisher
+p1 = Publisher(name='Apress', address='2855 Telegraph Avenue',
+    city='Berkeley', state_province='CA', country='U.S.A.',
+    website='http://www.apress.com/')
+p1.save()
+p2 = Publisher(name="O'Reilly", address='10 Fawcett St.',
+    city='Cambridge', state_province='MA', country='U.S.A.',
+    website='http://www.oreilly.com/')

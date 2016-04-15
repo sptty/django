@@ -38,6 +38,9 @@ class Publisher(models.Model):
     def __unicode__(self):
         return self.name
 
+    class Meta:
+        ordering = ['name']
+
 
 # 定义类:作者信息
 
@@ -60,13 +63,3 @@ class Books(models.Model):
 
     def __unicode__(self):
         return self.title
-
-
-
-
-
-
-
-
-
-
