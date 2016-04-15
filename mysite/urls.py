@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 """mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,6 +19,8 @@ from django.conf.urls import *
 from mysite.database.mysql import *
 from mysite.views import *
 
+'''
+# 老版本的url匹配规则
 urlpatterns = patterns('',('^hello/$',hello),
                        ('^time/$',nowtime),
                        ('^books/$',book_list),
@@ -28,3 +31,18 @@ urlpatterns = patterns('',('^hello/$',hello),
                        #  ('^admin$',admin),
                        )
 
+'''
+
+
+# django1.9新版的URL 匹配规则
+
+urlpatterns = [
+    url('^hello/$',hello),
+    url('^time/$',nowtime),
+    url ('^books/$',book_list),
+    url('^current_time/$',current_datetime),
+    url('^$',home_page),
+    url('^another-html/$',nowtime),
+    url(r'^html/plus/(\d{1,2})/$',offset_time),
+    url('^admin$',hello),
+    ]
