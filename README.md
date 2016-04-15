@@ -1,3 +1,3 @@
-# django 
-## add by sptty
-# date 20160414
+# django 学习笔记
+## sptty
+### date 20160414

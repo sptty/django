@@ -5,6 +5,25 @@ from django.db import models
 
 # Create your models here.
 
+'''
+此处都是跟数据库相关的信息:
+定义以下的类,然后在项目路径下面执行:
+注意：Django 1.7 及以上的版本需要用以下命令
+    python manage.py makemigrations
+    python manage.py migrate
+然后查看数据库即可看到已经建立了相应的表格:
+
+mysql> show tables;
++-----------------------------------+
+| Tables_in_db1                     |
++-----------------------------------+
+| books_author                      |
+| books_books                       |
+| books_books_author                |
+| books_publisher
+
+
+'''
 
 # 定义类:出版社信息
 
@@ -16,6 +35,9 @@ class Publisher(models.Model):
     country = models.CharField(max_length=50)
     website = models.URLField()
 
+    def __unicode__(self):
+        return self.name
+
 
 # 定义类:作者信息
 
@@ -24,6 +46,9 @@ class Author(models.Model):
     last_name = models.CharField(max_length=40)
     email = models.EmailField()
 
+    def __unicode__(self):
+        return '%s %s' % (self.first_name,self.last_name)
+
 
 # 定义类:书籍信息
 
@@ -31,5 +56,17 @@ class Books(models.Model):
     title = models.CharField(max_length=100)
     author = models.ManyToManyField(Author)
     publisher = models.ForeignKey(Publisher)
-    pubication_date = models.DateField
-    
+    publication_date = models.DateField
+
+    def __unicode__(self):
+        return self.title
+
+
+
+
+
+
+
+
+
+
