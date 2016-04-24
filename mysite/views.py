@@ -12,6 +12,8 @@ def hello(request):
 	return HttpResponse('hello,world!')
 
 
+
+
 def nowtime(request):
 	now = datetime.datetime.now()	
 	html = "<html><body> It is now %s.</body></html>" % now
