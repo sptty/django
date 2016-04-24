@@ -6,7 +6,7 @@ guess_num = 0
 
 while real_num != guess_num:
 
-    guess_num = int((raw_input('Input the number:'))
+    guess_num = int(raw_input('Input the number:'))
 
     # if type(guess_num) != type(1):
     #   print('%s is not a number,Please input a number.' % guess_num)
