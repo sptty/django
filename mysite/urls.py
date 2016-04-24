@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import *
+from django.contrib import admin
 
 from mysite.database.mysql import *
 from mysite.views import *
@@ -36,6 +37,8 @@ urlpatterns = patterns('',('^hello/$',hello),
 
 # django1.9新版的URL 匹配规则
 
+admin.autodiscover()
+
 urlpatterns = [
     url('^hello/$',hello),
     url('^time/$',nowtime),
@@ -44,5 +47,5 @@ urlpatterns = [
     url('^$',home_page),
     url('^another-html/$',nowtime),
     url(r'^html/plus/(\d{1,2})/$',offset_time),
-    url('^admin$',hello),
+    url('^admin',admin.site.urls),
     ]
