@@ -1,10 +1,8 @@
 # -*- coding : utf-8 -*-
-# Create your tests here.
 import os
+# Create your tests here.
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
-
-# from books.models import Publisher
+from books.models import Publisher
 '''
 try:
     p = Publisher.objects.get(name='sptty')
@@ -12,7 +10,7 @@ except Publisher.DoesNotExist:
     print('sptty is not in the database yet.')
 else:
     print(p)
-
+'''
 from books.models import Publisher
 p1 = Publisher(name='Apress', address='2855 Telegraph Avenue',
     city='Berkeley', state_province='CA', country='U.S.A.',
