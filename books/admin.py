@@ -13,6 +13,7 @@ class BooksAdmin(admin.ModelAdmin):
     list_display = ('title','publisher','publication_date',)
     date_hierarchy = 'publication_date'
     search_fields = ('title','publisher',)
+    ordering = ('publication_date',)
     # list_filter = ('publication_date',)
 
 class PublisherAdmin(admin.ModelAdmin):
