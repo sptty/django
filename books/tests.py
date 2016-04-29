@@ -1,8 +1,6 @@
 # -*- coding : utf-8 -*-
-import os
 # Create your tests here.
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
-from books.models import Publisher
+
 '''
 try:
     p = Publisher.objects.get(name='sptty')
@@ -21,17 +19,20 @@ p2 = Publisher(name="O'Reilly", address='10 Fawcett St.',
     website='http://www.oreilly.com/')
 '''
 
-name = raw_input('What is your name')
-age = raw_input('how old are you ')
-sex = raw_input('are you a male or female')
-job = raw_input('what is your job')
-salary = raw_input('What is your salary')
+name = input('What is your name: ')
+age = input('how old are you: ')
+sex = input('are you a male or female: ')
+job = input('what is your job: ')
+salary = input('What is your salary: ')
 
-print('''My name is %s,
-I am %d old,
+print('''
+-------------Begin---------------
+The person info are blew:
+My name is %s,
+I am %s old,
 I am a %s,
 I am a %s,
 My salary is %s
+--------------End----------------
 ''' % (name,age,sex,job,salary))
-
 
