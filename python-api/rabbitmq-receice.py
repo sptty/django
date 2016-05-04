@@ -2,10 +2,12 @@
 __author__ = 'sptty'
 
 # !/usr/bin/env python
+import time
+
 import pika
 
 credentials = pika.PlainCredentials('admin', 'yungui2015')
-parameters = pika.ConnectionParameters('172.19.1.82', 5672, '/', credentials)
+parameters = pika.ConnectionParameters('172.19.1.24', 5672, '/', credentials)
 connection = pika.BlockingConnection(parameters)
 channel = connection.channel()
 
@@ -16,6 +18,7 @@ print(' [*] Waiting for messages. To exit press CTRL+C')
 
 def callback(ch, method, properties, body):
     print(" [x] Received %r" % (body,))
+    time.sleep(0.2)
 
 
 channel.basic_consume(callback,
