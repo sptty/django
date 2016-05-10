@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang = "en">
+
+<head>
+    <title>Search results</title>
+</head>
+
+<body>
+<h1><p>You are search for:<strong> {{ query }}</strong></p> :</h1>
+
+
+
+{% if books %}
+    <p>Found {{ books|length }} book {{ books|pluralize }}</p>
+
+    <ul>
+        {% for books in books %}
+            <li>{{ books.title }}</li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+    <p>No books matched your search .</p>
+
+{% endif %}
+    <p>Thanks for visiting my website.</p>
+
+</body>
+
+</html>

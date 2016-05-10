@@ -17,22 +17,21 @@ p1.save()
 p2 = Publisher(name="O'Reilly", address='10 Fawcett St.',
     city='Cambridge', state_province='MA', country='U.S.A.',
     website='http://www.oreilly.com/')
+
+
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from books.models import Books
+
+
+if 'q' in request.GET and request.GET['q']:
+    q = request.GET['q']
+    books = Books.objects.filter(title__icontains=q)
+    print(books)
+    return render_to_response('html/search_result.html', {'title': 'Search results', '': books})
+
+else:
+    HttpResponse('Please submit a search term')
+
+
 '''
-
-name = input('What is your name: ')
-age = input('how old are you: ')
-sex = input('are you a male or female: ')
-job = input('what is your job: ')
-salary = input('What is your salary: ')
-
-print('''
--------------Begin---------------
-The person info are blew:
-My name is %s,
-I am %s old,
-I am a %s,
-I am a %s,
-My salary is %s
---------------End----------------
-''' % (name,age,sex,job,salary))
-

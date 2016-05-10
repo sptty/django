@@ -48,4 +48,6 @@ urlpatterns = [
     url('^another-html/$',nowtime),
     url(r'^html/plus/(\d{1,2})/$',offset_time),
     url('^admin/',admin.site.urls),
-    ]
+    url('^meta$',display_meta),
+    url('^search-form/$', search_form),
+]

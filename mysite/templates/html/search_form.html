@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}
-
-    {% endblock %}</title>
+    <title>Books Search</title>
 </head>
 <body>
 
 
+{% if errors %}
+        <ul>
+            {%  for error in errors %}
+                <li><p style="color: red;">{{ error }}</p></li>
+            {% endfor %}
+        </ul>
+{% endif %}
 
-<form action="/search/" method="'get">
+<form action="" method="'get">
     <input type="text" name="q">
     <input type="submit" value="search">
 </form>

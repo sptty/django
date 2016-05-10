@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Search</title>
+</head>
+<body>
+    <form action="/search/" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Search">
+    </form>
+</body>
+</html>
+
+
+
+{% extends 'base/basic.html' %}
+
+{% block title %}
+    Search page.
+{% endblock %}
+
+
+<form action="/search/" method="'get">
+    <input type="text" name="q">
+    <input type="submit" value="search">
+</form>
+
+
+

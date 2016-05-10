@@ -1,0 +1,17 @@
+{% extends 'base/basic.html' %}
+
+{% block title %}
+Meta information
+{% endblock %}
+
+{% block test %}
+       <p><table>{{ meta_list }}</table></p>
+    <tr><td>{{ info.key }}</td>
+        <td>{{ info.vaule }}</td></tr>
+{% endblock %}
+
+{% block content %}
+    <p>The meta info:</p>
+   <table>{{ meta_all_info }}</table>
+{% endblock %}
+
