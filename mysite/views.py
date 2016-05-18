@@ -86,7 +86,7 @@ def current_datetime(request):
 
 
 def books(request):
-	connections = MySQLdb.connect(user='sptty',passwd='123',db='db1')
+    connections = MySQLdb.connect(user='sptty',passwd='123',db='db1')
 	cursor = connections.cursor()
 	cursor.execute("show tables")
 	sum_row = cursor.fetchall()
@@ -148,6 +148,5 @@ def search_form(request):
         else:
             books = Books.objects.filter(title__icontains=q)
             return render_to_response('html/search_result.html',{'query':q,'books':books})
-    print(errors)
     return render_to_response('html/search_form.html',{'errors':errors})
 

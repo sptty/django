@@ -6,7 +6,7 @@ __author__ = 'sptty'
 import pika
 
 credentials = pika.PlainCredentials('admin', 'yungui2015')
-parameters = pika.ConnectionParameters('172.19.1.24', 5672, '/', credentials)
+parameters = pika.ConnectionParameters('172.19.1.3', 5672, '/', credentials)
 connection = pika.BlockingConnection(parameters)
 channel = connection.channel()
 
