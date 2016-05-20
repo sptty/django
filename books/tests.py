@@ -28,10 +28,16 @@ if 'q' in request.GET and request.GET['q']:
     q = request.GET['q']
     books = Books.objects.filter(title__icontains=q)
     print(books)
-    return render_to_response('html/search_result.html', {'title': 'Search results', '': books})
+    return render_to_response('html/form_search_result.html', {'title': 'Search results', '': books})
 
 else:
     HttpResponse('Please submit a search term')
 
 
+
+
+name = [3,5,66,3,99,33,545,3,2,6,888,5555,6,5,399]
+print(sorted(name)[-2:])
+
 '''
+

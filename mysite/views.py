@@ -1,12 +1,14 @@
 # -*- coding:utf-8 -*-
+import MySQLdb
 import datetime
 
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.shortcuts import render_to_response
+
+
 # from django.template import Template, Context
 # from django.template.loader import get_template
-from django.shortcuts import render_to_response
-import MySQLdb
-
 
 def hello(request):
 	return HttpResponse('hello,world!')
@@ -84,14 +86,13 @@ def current_datetime(request):
 	return HttpResponse(html)
 '''
 
-
 def books(request):
     connections = MySQLdb.connect(user='sptty',passwd='123',db='db1')
-	cursor = connections.cursor()
-	cursor.execute("show tables")
-	sum_row = cursor.fetchall()
-	print(sum_row)
-	return render_to_response('html/books.html', {'books_row':str(sum_row)})
+    cursor = connections.cursor()
+    cursor.execute("show tables")
+    sum_row = cursor.fetchall()
+    print(sum_row)
+    return render_to_response('html/books.html', {'books_row':str(sum_row)})
 
 
 '''
@@ -130,14 +131,13 @@ def offset_time(request,offset):
 	return render_to_response('html/plus_hours.html', {'plus':plus})
 
 '''def search_form(request):
-    return render_to_response('html/search_form.html')
+    return render_to_response('html/form_search.html')
 '''
 
 from books.models import Books
 
 def search_form(request):
     errors = []
-    error = True
     # error_len = False
     if 'q' in request.GET:
         q = request.GET['q']
@@ -147,6 +147,43 @@ def search_form(request):
             errors.append('Sorry again , a Search term must  length less than 10')
         else:
             books = Books.objects.filter(title__icontains=q)
-            return render_to_response('html/search_result.html',{'query':q,'books':books})
-    return render_to_response('html/search_form.html',{'errors':errors})
+            return render_to_response('html/form_search_result.html',{'query':q,'books':books})
+    return render_to_response('html/form_search.html', {'errors':errors})
 
+def contact(request):
+    errors = []
+    results = []
+    if request.method == 'POST':
+        if not request.POST.get('subject',''):
+            errors.append('Enter a subject.')
+        if not request.POST.get('message',''):
+            errors.append('Enter a message')
+        if not request.POST.get('telephone',''):
+            errors.append('Enter a telephone')
+        elif len(request.POST.get('telephone','')) != 11:
+            errors.append('请输入11位电话号码')
+            errors.append(len(request.POST.get('telephone','')))
+        if request.POST.get('email') and '@' not in request.POST['email']:
+            errors.append('Enter a valid e-mail address.')
+        if not errors:
+            '''
+            send_mail(
+                request.POST['subject'],
+                request.POST['message'],
+                request.POST.get('email','noreply@example.com'),
+                ['wanhb_yg@yun-gui.com'],
+            )
+            '''
+            results.append(request.POST['subject'])
+            results.append(request.POST['message'])
+            results.append(request.POST.get('email','noreply@example.com'))
+            results.append(['wanhb_yg@yun-gui.com'])
+            # return HttpResponseRedirect('/html/thanks.html')
+            # return render_to_response('html/form_contact.html',{'infos':results})
+            return HttpResponseRedirect('/thanks/')
+    return render_to_response('html/form_contact.html',
+                                  {'infos':errors})
+
+
+def thanks(request):
+    return render_to_response('html/thanks.html')

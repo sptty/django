@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact us</title>
+</head>
+
+<body>
+
+    <h1>Contact us</h1>
+
+    <!-- 如果输入信息不符合,将被传到error数组中,并显示报错信息 -->
+{% if errors %}
+        <ul>
+            {%  for info in infos %}
+                <li><p style="color: red;">{{ info }}</p></li>
+            {% endfor %}
+        </ul>
+{% endif %}
+
+<form action="/contact/" method="post">
+    <p>Subject: <input type="text" name="subject"></p>
+    <p>Your e-mail address (optional) <input type="text" name="email"></p>
+    <p>Your telephone number:<input type="text" name="telephone"></p>
+    <p>Message:<textarea name="message" rows="10" cols="50"></textarea></p>
+    <input type="submit" value="Submit">
+</form>
+
+
+<br> </br>
+<hr>
+<p>Thanks for visiting my site</p>
+</body>
+</html>

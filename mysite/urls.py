@@ -50,4 +50,6 @@ urlpatterns = [
     url('^admin/',admin.site.urls),
     url('^meta$',display_meta),
     url('^search-form/$', search_form),
+    url('^contact/$', contact),
+    url('^thanks/$', thanks),
 ]
