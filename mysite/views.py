@@ -150,6 +150,20 @@ def search_form(request):
             return render_to_response('html/form_search_result.html',{'query':q,'books':books})
     return render_to_response('html/form_search.html', {'errors':errors})
 
+
+from books.models import Contact
+
+# 将提交的表单信息写入数据库
+def contact_table(results):
+    contact_info = Contact(subject=results[0],telephone=results[1],email=results[2],message=results[3])
+    contact_info.save()
+    '''Contact.subject = results[0]
+    Contact.email = results[1]
+    Contact.telephone = results[2]
+    Contact.message = results[3]
+    Contact.save()'''
+
+
 def contact(request):
     errors = []
     results = []
@@ -162,7 +176,7 @@ def contact(request):
             errors.append('Enter a telephone')
         elif len(request.POST.get('telephone','')) != 11:
             errors.append('请输入11位电话号码')
-            errors.append(len(request.POST.get('telephone','')))
+            # errors.append(len(request.POST.get('telephone','')))
         if request.POST.get('email') and '@' not in request.POST['email']:
             errors.append('Enter a valid e-mail address.')
         if not errors:
@@ -175,15 +189,25 @@ def contact(request):
             )
             '''
             results.append(request.POST['subject'])
+            results.append(request.POST['telephone'])
+            results.append(request.POST['email'])
             results.append(request.POST['message'])
-            results.append(request.POST.get('email','noreply@example.com'))
-            results.append(['wanhb_yg@yun-gui.com'])
+            contact_table(results)  # 调用函数,将数据写入数据库
             # return HttpResponseRedirect('/html/thanks.html')
             # return render_to_response('html/form_contact.html',{'infos':results})
+
             return HttpResponseRedirect('/thanks/')
     return render_to_response('html/form_contact.html',
-                                  {'infos':errors})
+                                  {'errors':errors,
+                              'subject': request.POST.get('subject',''),
+                              'message':request.POST.get('message',''),
+                              'telephone':request.POST.get('telephone',''),
+                              'email':request.POST.get('email',''),
+                                   })
 
 
 def thanks(request):
     return render_to_response('html/thanks.html')
+
+
+

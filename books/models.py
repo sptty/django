@@ -63,3 +63,14 @@ class Books(models.Model):
 
     def __unicode__(self):
         return self.title
+
+# 定义类:联系人信息
+
+class Contact(models.Model):
+    subject = models.CharField(max_length=50)
+    email = models.EmailField(blank=True,verbose_name='e-mail')
+    telephone = models.IntegerField(max_length=11)
+    message = models.CharField(max_length=200)
+
+    def __unicode__(self):
+        return self.subject
