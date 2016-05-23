@@ -154,16 +154,17 @@ def search_form(request):
 from books.models import Contact
 
 # 将提交的表单信息写入数据库
-def contact_table(results):
-    contact_info = Contact(subject=results[0],telephone=results[1],email=results[2],message=results[3])
+def contact_table(**results):
+    contact_info = Contact(subject=results['subject'],telephone=results['telephone'],email=results['email'],message=results['message'])
     contact_info.save()
+
     '''Contact.subject = results[0]
     Contact.email = results[1]
     Contact.telephone = results[2]
     Contact.message = results[3]
     Contact.save()'''
 
-
+"""
 def contact(request):
     errors = []
     results = []
@@ -204,6 +205,20 @@ def contact(request):
                               'telephone':request.POST.get('telephone',''),
                               'email':request.POST.get('email',''),
                                    })
+"""
+
+
+from mysite.forms import Contact_form
+def contact(request):
+    if request.method == 'POST':
+        form = Contact_form(request.POST)
+        if form.is_valid():
+            form_data = form.cleaned_data
+            contact_table(**form_data)
+            return HttpResponseRedirect('/thanks/')
+    else:       # 第一次访问直接到这里
+        form = Contact_form(initial={'subject':'请输入邮件主题'})
+    return render_to_response('html/form_contact.html',{'form':form})
 
 
 def thanks(request):

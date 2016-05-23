@@ -69,7 +69,7 @@ class Books(models.Model):
 class Contact(models.Model):
     subject = models.CharField(max_length=50)
     email = models.EmailField(blank=True,verbose_name='e-mail')
-    telephone = models.IntegerField(max_length=11)
+    telephone = models.BigIntegerField()
     message = models.CharField(max_length=200)
 
     def __unicode__(self):
