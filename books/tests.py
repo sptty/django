@@ -39,5 +39,28 @@ else:
 name = [3,5,66,3,99,33,545,3,2,6,888,5555,6,5,399]
 print(sorted(name)[-2:])
 
+
+def test(name,age,weight):
+    print('My name is '+name + ',I am  '+ age +' years old, I am '+  weight)
+
+test(name='sptty',weight='70',age='26')
+
+sums = 1
+for i in range(1,362):
+    sums *= i
+    if i ==361:
+        print(str(sums))
+
 '''
 
+def foo(*args,**kwargs):
+    print('Postional argument are:')
+    print(args)
+    print('keyword argument are:')
+    print(kwargs)
+    kwarg = kwargs.pop('a')
+    print(kwarg)
+    print(kwargs)
+
+
+print({'d':1,'e':2,'f':3,},foo(a=1,b=2,c=3))

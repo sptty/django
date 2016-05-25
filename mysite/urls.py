@@ -14,11 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import *
-from django.contrib import admin
 
-from mysite.database.mysql import *
-from mysite.views import *
 
 '''
 # 老版本的url匹配规则
@@ -34,11 +30,59 @@ urlpatterns = patterns('',('^hello/$',hello),
 
 '''
 
+from django.conf.urls.static import *
+from django.contrib import admin
 
-# django1.9新版的URL 匹配规则
+from books.models import *
+from mysite.database.mysql import *
+from mysite.views import *
 
+# from django.conf.urls.defaults import *   # 这是老版本django的导入方法
+from django.conf.urls import patterns,include,url  # django 1.9 的方法
 admin.autodiscover()
 
+
+# django1.9  高级url 配置规则
+urlpatterns = patterns(
+    'mysite.views',
+    url('^hello/$','hello',name='hello'),
+    url('^time/$','nowtime',name='nowtime'),
+    url ('^books/$',books_list),
+    url('^current_time/$','current_datetime',name='current_datetime'),
+    url('^$','home_page',name='home_page'),
+    url('^another-html/$','nowtime',name='nowtime'),
+    url(r'^html/plus/(\d{1,2})/$','offset_time',name='offset_time'),
+    url('^admin/',include(admin.site.urls)),
+    url('^meta$','display_meta',name='display_meta'),
+    url('^search-form/$', 'search_form',name='search_form'),
+    url('^contact/$', 'contact',name='contact'),
+    url('^thanks/$', 'thanks',name='thanks'),
+    url(r'article_year/(?P<year>\d{4})/$','article_year',name='article_year'),
+    url(r'article_year/$', 'article_year', name='article_year'),
+    url(r'article_month/(?P<year>\d{4})/(?P<month>\d{2})/$','article_month',name='article_month'),
+    url(r'birthday/(?P<year>\d{4})/(?P<month>\d{2})/$', article_month),
+    url(r'^foo/$', foobar, {'template_name': 'html/template_foo.html'}),
+    url(r'^bar/$', foobar, {'template_name': 'html/template_bar.html'}),
+    url(r'^greet/(?P<greeting>[a-z]*)/(?P<person_name>[a-z]*)/$','greet',name='greet'),
+    # url(r'^book/$',book_list),
+    # url(r'blog/contact/$',contact_list),
+    url(r'^book/$',info_list,{'model':Books}),
+    url(r'blog/contact/$', info_list,{'model':Contact}),
+    # url(r'^some_page/$','some_page',name='some_page'),
+    url(r'^some_page/$', method_splitter,{'GET':some_page_get,'POST':some_page_post}),
+)
+
+'''
+urlpatterns += patterns(
+    'mysite.forms',
+    url('^form/', 'Contact_form', name='admin'),
+)
+'''
+
+
+# django1.9新版的URL 匹配规则
+'''
+# django1.9新版的URL 匹配规则
 urlpatterns = [
     url('^hello/$',hello),
     url('^time/$',nowtime),
@@ -53,3 +97,6 @@ urlpatterns = [
     url('^contact/$', contact),
     url('^thanks/$', thanks),
 ]
+'''
+
+

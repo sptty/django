@@ -2,9 +2,11 @@
 import MySQLdb
 import datetime
 
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse,Http404
 from django.shortcuts import render_to_response
+
+from books.models import Books
+from mysite.forms import Contact_form
 
 
 # from django.template import Template, Context
@@ -92,7 +94,7 @@ def books(request):
     cursor.execute("show tables")
     sum_row = cursor.fetchall()
     print(sum_row)
-    return render_to_response('html/books.html', {'books_row':str(sum_row)})
+    return render_to_response('html/form_books.html', {'books_row':str(sum_row)})
 
 
 '''
@@ -134,7 +136,6 @@ def offset_time(request,offset):
     return render_to_response('html/form_search.html')
 '''
 
-from books.models import Books
 
 def search_form(request):
     errors = []
@@ -155,7 +156,11 @@ from books.models import Contact
 
 # 将提交的表单信息写入数据库
 def contact_table(**results):
-    contact_info = Contact(subject=results['subject'],telephone=results['telephone'],email=results['email'],message=results['message'])
+    contact_info = Contact(subject=results['subject'],
+                           telephone=results['telephone'],
+                           email=results['email'],
+                           message=results['message']
+                           )
     contact_info.save()
 
     '''Contact.subject = results[0]
@@ -208,7 +213,6 @@ def contact(request):
 """
 
 
-from mysite.forms import Contact_form
 def contact(request):
     if request.method == 'POST':
         form = Contact_form(request.POST)
@@ -225,4 +229,71 @@ def thanks(request):
     return render_to_response('html/thanks.html')
 
 
+def article_year(request,year='2015'):
+    return HttpResponse(str(year+' year.'))
+
+
+def article_month(request,year,month):
+    try:
+        title = str(year + ' year ' + month + ' month.')
+    except ValueError:
+        return HttpResponse('month is not right!')
+    return HttpResponse(title)
+
+
+def foobar(request,template_name):
+    return render_to_response(template_name=template_name)
+
+
+def greet(request,person_name,greeting):
+    greeting = greeting
+    person_name = person_name
+    return HttpResponse(str(greeting+' ' +person_name))
+
+'''
+def book_list(request):
+    obj_list = Books.objects.all()
+    return render_to_response('html/form_books.html', {'books_list':obj_list})
+
+
+def contact_list(request):
+    obj_list = Contact.objects.all()
+    return render_to_response('html/form_contact.html',{'contact_list':obj_list})
+
+'''
+
+def info_list(request,model):
+    obj_list = model.objects.all()
+    obj_list = str(obj_list)
+    return render_to_response('html/form_%s.html' % model.__name__.lower(),{'object_list':obj_list})
+
+
+def method_splitter(request,*args,**kwargs):
+    get_view = kwargs.pop('GET',None)
+    post_view = kwargs.pop('POST',None)
+    if request.method == 'POST' and post_view is not None:
+        return HttpResponseRedirect('/thanks/')
+    elif request.method == 'GET' and get_view is not None:
+        return render_to_response('html/form_books.html')
+    else:
+        raise Http404
+
+
+def some_page_get(request,*args,**kwargs):
+    assert request.method == 'GET'
+    return render_to_response('html/form_books.html')
+
+
+def some_page_post(request):
+    assert request.method == 'POST'
+    return HttpResponseRedirect('/thanks/')
+
+
+def some_page(request):
+    if request.method == 'POST':
+        return HttpResponseRedirect('/thanks/')      # 注意HttpResponseRedirect参数写的是URL
+    elif request.method == 'GET':
+        return render_to_response('html/form_books.html')
+    else:
+        raise Http404
 
