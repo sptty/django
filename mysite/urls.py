@@ -70,18 +70,42 @@ urlpatterns = patterns(
     url(r'blog/contact/$', info_list,{'model':Contact}),
     # url(r'^some_page/$','some_page',name='some_page'),
     url(r'^some_page/$', method_splitter,{'GET':some_page_get,'POST':some_page_post}),
+    # url(r'^blog/$',include('mysite.blog.urls')),
+    # url(r'^life/$',include('mysite.life.urls')),
+    url(r'^view_1/$', 'view_1', name='view_1'),
+    url(r'^view_2/$', 'view_2', name='view_2'),
+    url(r'^view_3/$', 'view_3', name='view_3'),
+    url(r'^view_4/$', 'view_4', name='view_4'),
+    url(r'^view_5/$', 'view_5', name='view_5'),
 )
 
+
 '''
+
+
+urlpatterns = patterns('',
+                       url(r'weblog/',include('mysite.blog.urls')),
+                       url(r'photos/',include('mysite.photos.urls')),
+                       url(r'about/$','mysite.views.about'),
+                       url(r'^(?P<username>\w+)/blog/',include('foo.urls.blog')),
+)
+
+# 下面是URLconf mysite.blog.urls
+urlpatterns = patterns('',
+                       url(r'(\d\d\d\d)/$','mysite.blog.views.year_detail'),
+                       url(r'(\d\d\d\d/\d\d)/$','mysite.blog.views.month_detail'),
+)
+
+
 urlpatterns += patterns(
     'mysite.forms',
     url('^form/', 'Contact_form', name='admin'),
 )
-'''
 
 
-# django1.9新版的URL 匹配规则
-'''
+
+
+
 # django1.9新版的URL 匹配规则
 urlpatterns = [
     url('^hello/$',hello),

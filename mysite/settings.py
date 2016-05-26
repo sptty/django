@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 """
 Django settings for mysite project.
 
@@ -71,6 +72,16 @@ TEMPLATES = [
         },
     },
 ]
+
+# 添加django 全局context处理器配置
+
+TEMPLATES_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+)
+
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 

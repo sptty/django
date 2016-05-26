@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thanks</title>
+</head>
+<body>
+
+{% block title %}
+This & that
+{% endblock %}
+        <ul>
+                <li><p style="color: #ff3014;">{{ app }}</p></li>
+                <li><p style="color: #ff3014;">{{ user }}</p></li>
+                <li><p style="color: #ff3014;">{{ ip_address }}</p></li>
+            {% autoescape off %}
+                <li><p style="color: #ff3014;">{{ message }}</p></li>
+            {%  endautoescape %}
+
+        </ul>
+        <p>from sptty</p>
+
+<p>Thanks for visiting my site</p>
+
+</body>
+</html>
