@@ -9,12 +9,15 @@
 {% block title %}
 This & that
 {% endblock %}
+
+{% load filter_extra %}
+
         <ul>
                 <li><p style="color: #ff3014;">{{ app }}</p></li>
                 <li><p style="color: #ff3014;">{{ user }}</p></li>
                 <li><p style="color: #ff3014;">{{ ip_address }}</p></li>
             {% autoescape off %}
-                <li><p style="color: #ff3014;">{{ message }}</p></li>
+                <li><p style="color: #ff3014;">{{ message |lower }}</p></li>
             {%  endautoescape %}
 
         </ul>

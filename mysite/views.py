@@ -389,7 +389,7 @@ def view_3(request):
 def view_4(request):
     return render_to_response(
         'html/context.html',
-        {'message':"<script>alert('hello')</script>"},
+        {'message':"<script>alert('^_^ 哈哈哈 这是个玩笑!')</script>"},
         # 通过这段html代码,且模板中{{message|safe}} 不转意特殊字符,那么在web访问的时候 将执行这段代码,效果就是弹出小窗口
         context_instance=RequestContext(request,processors=[custom_proc]),
     )
