@@ -4,7 +4,6 @@ import datetime
 
 from django.http import HttpResponseRedirect,HttpResponse,Http404
 from django.shortcuts import render_to_response
-from django.template import loader,RequestContext
 
 from books.models import Books
 from mysite.forms import Contact_form
@@ -331,7 +330,7 @@ def view_2(request):
     return t.render(c)
 
 def view_1(request):
-    t = loader.get_template('html/context.html')
+    t = loader.get_template('html/tag_context.html')
     c = RequestContext(
         request,
         {'message':'I am  view 1.',},
@@ -341,7 +340,7 @@ def view_1(request):
 
 
 def view_2(request):
-    t = loader.get_template('html/context.html')
+    t = loader.get_template('html/tag_context.html')
     c = RequestContext(
         request,
         {'message':'I am a second view'},
@@ -349,7 +348,7 @@ def view_2(request):
     )
     return  HttpResponse(t.render(c))
 
-'''
+
 
 # 定义context处理器,接受http request请求然后返回一个字典,字典包含可以在模板context中使用的变量
 def custom_proc(request):
@@ -364,7 +363,7 @@ def custom_proc(request):
 
 def view_1(request):
     return render_to_response(
-        'html/context.html',
+        'html/tag_context.html',
         {'message':'I am a view one'},
         context_instance=RequestContext(request,processors=[custom_proc])
                               )
@@ -372,7 +371,7 @@ def view_1(request):
 
 def view_2(request):
     return render_to_response(
-        'html/context.html',
+        'html/tag_context.html',
         {'message':"I am the view two ."},
         context_instance=RequestContext(request,processors=[custom_proc]),
                               )
@@ -380,7 +379,7 @@ def view_2(request):
 
 def view_3(request):
     return render_to_response(
-        'html/context.html',
+        'html/tag_context.html',
         {'message':'I am the view three.'},
         context_instance=RequestContext(request,processors=[custom_proc]),
     )
@@ -388,8 +387,8 @@ def view_3(request):
 
 def view_4(request):
     return render_to_response(
-        'html/context.html',
-        {'message':"<script>alert('^_^ 哈哈哈 这是个玩笑!')</script>"},
+        'html/tag_context.html',
+        {'message':"<script>alert('^_^ 哈哈哈 这是个玩笑,张玉就是个250 阿  ^_^哈啊华^_^!')</script>",},
         # 通过这段html代码,且模板中{{message|safe}} 不转意特殊字符,那么在web访问的时候 将执行这段代码,效果就是弹出小窗口
         context_instance=RequestContext(request,processors=[custom_proc]),
     )
@@ -397,13 +396,13 @@ def view_4(request):
 
 def view_5(request):
     return render_to_response(
-        'html/context.html',
+        'html/tag_context.html',
         {'message':"I am <b>the view five."},
         context_instance=RequestContext(request,processors=[custom_proc]),
     )
 
 def view_6(request):
-    t = loader.get_template('html/context.html')
+    t = loader.get_template('html/tag_context.html')
     c = RequestContext(
         request,
         {'message':'This is the view six!!!'},
@@ -411,3 +410,12 @@ def view_6(request):
     )
 
 
+def tag_books(request):
+    t = loader.get_template('html/tag_books.html')
+    c = RequestContext(request)
+    return t.render(c)
+'''
+
+def tag_books(request):
+    # books = str(books)
+    return render_to_response('html/tag_books.html')

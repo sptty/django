@@ -51,7 +51,7 @@ for i in range(1,362):
     if i ==361:
         print(str(sums))
 
-'''
+
 
 def foo(*args,**kwargs):
     print('Postional argument are:')
@@ -68,3 +68,27 @@ print({'d':1,'e':2,'f':3,},foo(a=1,b=2,c=3))
 
 from mysite.views import custom_proc
 print(custom_proc.__doc__)
+
+'''
+
+
+def g(n):
+    for i in range(n):
+        yield i**2
+
+for i in g(5):
+    print(i)
+
+
+for i in range(5):
+    print(i**2)
+
+
+
+
+a = 'this is a test'
+
+from books.models import Books
+
+books11 = Books.objects
+print(books11)

@@ -41,7 +41,6 @@ from mysite.views import *
 from django.conf.urls import patterns,include,url  # django 1.9 的方法
 admin.autodiscover()
 
-
 # django1.9  高级url 配置规则
 urlpatterns = patterns(
     'mysite.views',
@@ -72,11 +71,12 @@ urlpatterns = patterns(
     url(r'^some_page/$', method_splitter,{'GET':some_page_get,'POST':some_page_post}),
     # url(r'^blog/$',include('mysite.blog.urls')),
     # url(r'^life/$',include('mysite.life.urls')),
-    url(r'^view_1/$', 'view_1', name='view_1'),
-    url(r'^view_2/$', 'view_2', name='view_2'),
-    url(r'^view_3/$', 'view_3', name='view_3'),
-    url(r'^view_4/$', 'view_4', name='view_4'),
-    url(r'^view_5/$', 'view_5', name='view_5'),
+    # url(r'^view_1/$', 'view_1', name='view_1'),
+    # url(r'^view_2/$', 'view_2', name='view_2'),
+    # url(r'^view_3/$', 'view_3', name='view_3'),
+    # url(r'^view_4/$', 'view_4', name='view_4'),
+    # url(r'^view_5/$', 'view_5', name='view_5'),
+    url(r'^tag_books/$',tag_books),
 )
 
 

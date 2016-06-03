@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thanks</title>
+</head>
+<body>
+
+{% block title %}
+This & that
+{% endblock %}
+
+{% load filter_extra %}
+
+        <ul>
+
+                <p>
+                    {% doupper %}
+                    this will upper in uppercase ,{{ message }}
+                    {% enddoupper %}
+                </p>
+
+<p>{% current_time2 "%Y-%M-%d %I:%M %p" %}</p>
+                <p>1 current_time, the time is {{ current_time2 }}</p>
+
+
+                <p>{% do_current_time "%Y-%M-%d %I:%M %p" as my_current_time %}</p>
+                <p>2 do_current_time,the time is {{ my_current_time }}  .</p>
+
+                <p>3 current_time simple tag , the time is {% current_time "%Y-%M-%d %I:%M:%s %p" %}</p>
+                <p>4 current_time simple tag , the time is {% new_time "%Y-%M-%d %I:%M:%s %p" %}</p>
+
+
+            {% autoescape off %}
+                <li><p style="color: #ff3014;">{{ app }}</p></li>
+                <li><p style="color: #ff3014;">{{ user }}</p></li>
+                <li><p style="color: #ff3014;">{{ ip_address }}</p></li>
+                <li><p style="color: #ff3014;">{{ message |lower }}</p></li>
+            {%  endautoescape %}
+
+        </ul>
+        <p>from sptty</p>
+<p>Thanks for visiting my site</p>
+
+</body>
+</html>
