@@ -155,7 +155,16 @@ register.simple_tag(new_time)
 
 
 @register.inclusion_tag('html/tag_books_snippet.html')
-def books_for_author(author):
-    books = Books.objects.filter(id=author)
+def books_for_author():
+    books = Books.objects.filter()
     return {'books':books}
+
+
+@register.inclusion_tag('html/tag_takes_context.html',takes_context=True)
+def jump_link(context):
+    context={'admin':'admin','hello':'hello'}
+    return {
+        'link':context.keys()[0],
+        'title':context.values()[0],
+    }
 

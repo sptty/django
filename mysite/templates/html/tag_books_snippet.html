@@ -6,13 +6,10 @@
 </head>
 <body>
 
+<h1><p>Books are:</p></h1>
     {% for book in books %}
-        <li>Title: {{ book.title }}</li>
-        <li>{{ book.id }}</li>
-        <li>Book_Author: {{ book.author }}</li>
-
+        <table><td><li>{{ book.title }}----{{ book.publication_date }}</li></td></table>
     {% endfor %}
-
 
 <p>Thanks for visiting my site</p>
 

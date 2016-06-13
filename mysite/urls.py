@@ -77,6 +77,8 @@ urlpatterns = patterns(
     # url(r'^view_4/$', 'view_4', name='view_4'),
     # url(r'^view_5/$', 'view_5', name='view_5'),
     url(r'^tag_books/$',tag_books),
+    url('^jump_link/$',jump_link),
+    url('^jump_link/admin', include(admin.site.urls)),
 )
 
 

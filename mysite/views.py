@@ -419,3 +419,7 @@ def tag_books(request):
 def tag_books(request):
     # books = str(books)
     return render_to_response('html/tag_books.html')
+
+
+def jump_link(request):
+    return render_to_response('html/tag_takes_context_url.html')
