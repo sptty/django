@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     #'django.contrib.messages',
-    #'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     'books',
     'templates',
     'mysite',
@@ -152,3 +152,4 @@ USE_TZ = True
 # STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
 # STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (BASE_DIR,'static')

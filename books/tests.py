@@ -92,3 +92,14 @@ from books.models import Books
 
 books11 = Books.objects
 print(books11)
+
+
+import ansible.runner
+runner = ansible.runner.Runner(
+    module_name = 'ping',
+    module_args = '',
+    pattern = 'web',
+    forks = 0,
+)
+
+datastructure = runner.run()

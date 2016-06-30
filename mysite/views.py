@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
-import MySQLdb
 import datetime
 
+import MySQLdb
 from django.http import HttpResponseRedirect,HttpResponse,Http404
 from django.shortcuts import render_to_response
 

@@ -74,3 +74,23 @@ class Contact(models.Model):
 
     def __unicode__(self):
         return self.subject
+
+
+# 测试create table
+class Ctest(models.Model):
+    colume1 = models.CharField(max_length=10)
+    colume2 = models.CharField(max_length=20)
+    colume3 = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.colume1
+
+    class Meta:
+        ordering = ['colume1']
+
+
+# 定义书籍的manger方法
+
+class BookManager(models.Manager):
+    def title_count(self,keyword):
+        return self.filter(title_icontains=keyword).count()
