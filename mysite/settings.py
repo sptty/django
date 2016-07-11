@@ -31,7 +31,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# Application definitionF
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,11 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     #'django.contrib.messages',
-    #'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     'books',
     'templates',
     'mysite',
     'tians',
+    'polls',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -63,7 +64,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/root/Desktop/mysite/mysite/templates'],
+        'DIRS': ['/root/Desktop/mysite/mysite/templates','/root/Desktop/mysite/books'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -152,3 +153,4 @@ USE_TZ = True
 # STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
 # STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (BASE_DIR,'static')

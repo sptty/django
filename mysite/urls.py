@@ -82,8 +82,9 @@ urlpatterns = patterns(
 )
 
 
-'''
 
+
+'''
 
 urlpatterns = patterns('',
                        url(r'weblog/',include('mysite.blog.urls')),
@@ -98,31 +99,13 @@ urlpatterns = patterns('',
                        url(r'(\d\d\d\d/\d\d)/$','mysite.blog.views.month_detail'),
 )
 
-
-urlpatterns += patterns(
-    'mysite.forms',
-    url('^form/', 'Contact_form', name='admin'),
-)
-
-
-
-
-
-# django1.9新版的URL 匹配规则
-urlpatterns = [
-    url('^hello/$',hello),
-    url('^time/$',nowtime),
-    url ('^books/$',book_list),
-    url('^current_time/$',current_datetime),
-    url('^$',home_page),
-    url('^another-html/$',nowtime),
-    url(r'^html/plus/(\d{1,2})/$',offset_time),
-    url('^admin/',admin.site.urls),
-    url('^meta$',display_meta),
-    url('^search-form/$', search_form),
-    url('^contact/$', contact),
-    url('^thanks/$', thanks),
-]
 '''
 
+from books.views import year_archive
 
+urlpatterns += patterns(
+    'books.views',
+    url(r'articles/(?P<year>\d{4})/$',year_archive,name='year_archive'),
+    # url(r'articles/[0-9]{4}/[0-9]{2}/$', month_archive, name='month_archive'),
+    # url(r'articles/[0-9]{4}/[0-9]{2}/([0-9]+)/$', archive_detail, name=' archive_detail'),
+)

@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block title %}  Articles for {{ year }}   {% endblock %}
+
+{% block content %} <h1> Articles for {{ year }} .</h1> {% endblock %}
+
+
+{% block article %}
+
+    {% for article in article_list %}
+    <p> {{ article.headline }}--{{ article.reporter.full_name }}--{{ article.pub_date|date:"F j, Y" }}</p>
+
+{% endfor %}
+{% endblock %}
+
