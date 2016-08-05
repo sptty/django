@@ -64,7 +64,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/root/Desktop/mysite/mysite/templates','/root/Desktop/mysite/books'],
+        'DIRS': [os.path.join('/root/Desktop/mysite/','templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -153,4 +153,4 @@ USE_TZ = True
 # STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
 # STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (BASE_DIR,'static')
+# STATICFILES_DIRS = (BASE_DIR,'static')

@@ -44,14 +44,16 @@ admin.autodiscover()
 # django1.9  高级url 配置规则
 urlpatterns = patterns(
     'mysite.views',
+    url('^admin/', include(admin.site.urls)),
+    url('^articles/', include('books.urls', namespace='books')),
+    url(r'^polls/', include('polls.urls', namespace='polls')),
     url('^hello/$','hello',name='hello'),
     url('^time/$','nowtime',name='nowtime'),
-    url ('^books/$',books_list),
+    url('^books/$',books_list),
     url('^current_time/$','current_datetime',name='current_datetime'),
     url('^$','home_page',name='home_page'),
     url('^another-html/$','nowtime',name='nowtime'),
     url(r'^html/plus/(\d{1,2})/$','offset_time',name='offset_time'),
-    url('^admin/',include(admin.site.urls)),
     url('^meta$','display_meta',name='display_meta'),
     url('^search-form/$', 'search_form',name='search_form'),
     url('^contact/$', 'contact',name='contact'),
@@ -101,11 +103,6 @@ urlpatterns = patterns('',
 
 '''
 
-from books.views import year_archive
 
-urlpatterns += patterns(
-    'books.views',
-    url(r'articles/(?P<year>\d{4})/$',year_archive,name='year_archive'),
-    # url(r'articles/[0-9]{4}/[0-9]{2}/$', month_archive, name='month_archive'),
-    # url(r'articles/[0-9]{4}/[0-9]{2}/([0-9]+)/$', archive_detail, name=' archive_detail'),
-)
+
+# from polls.views import *
