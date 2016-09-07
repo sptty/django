@@ -146,11 +146,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-# STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
-# STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
-# STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
-# STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
-# STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
-# STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
+
 STATIC_URL = '/static/'
 # STATICFILES_DIRS = (BASE_DIR,'static')

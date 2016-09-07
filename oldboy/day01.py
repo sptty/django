@@ -12,7 +12,7 @@ for i in range(0,3):
     # print('You have already testing more than 10 times !')
 
     # guess_num = int(input('Input the number:'))
-    guess_num = raw_input('Input the number:').strip()
+    guess_num = str(input('Input the number:')).strip()
 
     # guess_num = int(guess_num)
 
@@ -27,7 +27,7 @@ for i in range(0,3):
         print('Please input the <number> again! not alpha and alnum')
         continue
 
-# if type(gueswss_num) != type(1):
+# if type(guess_num) != type(1):
     #   print('%s is not a number,Please input a number.' % guess_num)
     #   sys.exit()
 
@@ -36,7 +36,7 @@ for i in range(0,3):
     elif real_num < guess_num:
             print('Please input smaller number.')
     else:
-            print('congratultions,you got it ! ')
+            print('congratulations,you got it ! ')
             # sys.exit()
             break
 else:

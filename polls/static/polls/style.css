@@ -1,0 +1,10 @@
+/* 问题颜色样式 */
+li a {
+    color: red;
+    background-color: black;
+}
+
+/* 背景图片 */
+body {
+    background: white url("images/desktop-grub.png") repeat left top;
+}

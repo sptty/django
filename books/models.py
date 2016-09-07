@@ -120,7 +120,6 @@ class BookManager(models.Manager):
 # 测试create table
 class Ctest(models.Model):
     colume1 = models.CharField(max_length=10)
-    colume2 = models.CharField(max_length=20)
 
     def __unicode__(self):
         return self.colume1

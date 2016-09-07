@@ -1,3 +1,6 @@
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
 <h1>{{ quesiton.question_text }}</h1>
 <ul>{% for choice in quesiton.choice_set.all %}
     <li>
