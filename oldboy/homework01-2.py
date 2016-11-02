@@ -150,22 +150,6 @@ def staff_search(staff_key_info,*all_staff_info_list):
     #     print('staff_search_results')
     #     return staff_search_results
 
-
-
-
-
-
-
-
-# new_staff_info = '\n' + new_staff_name + ',' + new_staff_job + ',' + new_staff_dept + ',' + new_staff_tel + ',' + new_staff_email
-
-
-def staff_modify():
-    pass
-
-def staff_delete():
-    pass
-
 def staff_display(*staff_search_results):
     for i in staff_search_results:
         staff_search_results=i
@@ -173,11 +157,6 @@ def staff_display(*staff_search_results):
         for j in range(0,len(staff_search_results)):
             print(str(staff_search_results[j]))
 
-def staff_info():
-    pass
-
-def modify_staff_info():
-    pass
 
 def exit_judge(user_choice):
     if int(user_choice) == 5:
@@ -186,12 +165,23 @@ def exit_judge(user_choice):
         # print('不退出执行')
         return False
 
+def add_staff_info():
+    __doc__ = '用户输入信息和增加信息，并判断输入信息是否重复'
+    new_staff_info = input_staff_info()
+    if new_staff_info.strip() + '\n' in all_staff_info_list:  #
+        print(
+            'The information of new staff ' + new_staff_info.strip().split(',')[0] + ' is exist.Please re-inout.')
+    else:
+        new_all_staff_info_list = new_all_staff_info('add', new_staff_info)
+        write_to_files(new_all_staff_info_list)
+
 
 
 if __name__=='__main__':
     print('----------------Staff information query system-------------------')
 
     exit_status=False
+
 
     while not exit_status:                           # 循环执行
 
@@ -202,14 +192,9 @@ if __name__=='__main__':
 
         if   user_choice_num == 1:
             print('1.增加员工信息')
-            new_staff_info=input_staff_info()
 
             all_staff_info_list=all_staff_info()
-            if new_staff_info.strip()+'\n' in all_staff_info_list:      #
-                print('The information of new staff '+ new_staff_info.strip().split(',')[0]+' is exist.Please re-inout.')
-            else:
-                new_all_staff_info_list=new_all_staff_info('add',new_staff_info)
-                write_to_files(new_all_staff_info_list)
+            add_staff_info()
 
         elif user_choice_num == 2:
             __doc__='1. 先搜索到关键字的用户信息，然后将其删除，再调用增加的函数重新录入用户信息达到修改用户信息的目的'
@@ -223,13 +208,14 @@ if __name__=='__main__':
             write_to_files(new_all_staff_info_list)
 
             print('请重新输入员工信息：\n')
-            new_staff_info=input_staff_info()
-
-            if new_staff_info.strip()+'\n' in all_staff_info_list:      #
-                print('The information of new staff '+ new_staff_info.strip().split(',')[0]+' is exist.Please re-inout.')
-            else:
-                new_all_staff_info_list=new_all_staff_info('add',new_staff_info)
-                write_to_files(new_all_staff_info_list)
+            add_staff_info()
+            # new_staff_info=input_staff_info()
+            #
+            # if new_staff_info.strip()+'\n' in all_staff_info_list:      #
+            #     print('The information of new staff '+ new_staff_info.strip().split(',')[0]+' is exist.Please re-inout.')
+            # else:
+            #     new_all_staff_info_list=new_all_staff_info('add',new_staff_info)
+            #     write_to_files(new_all_staff_info_list)
 
 
         elif user_choice_num == 3:

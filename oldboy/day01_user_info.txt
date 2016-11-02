@@ -3,7 +3,6 @@ Jack Ma, Salesman, Sales Dep., 18xxxx04334, jack@sina.com
 sean,sales,sales,123423423454,2343@232.com
 Jack Wang.,hacker,QQ.com,189521xxx45,jack@txxxxt.com
 Selina,HR,HR dept.,15152462622,wanhb@xxxxxxx.com
-Alen,HR,human source.,1236446345434,45463@we.com
 Wodon,wew,HR,132940820948,wiewijriw@www.com
 Olive,HR,HR dept.,2312421421421,erwrwnki@dd.com
 wan,operationer,IT dept.,15xxxxxx616,7478xxxxx@qq.com
