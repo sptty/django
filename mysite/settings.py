@@ -13,9 +13,12 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+# os.environ.update({"DJANGO_SETTINGS_MODULE": "config.settings"})
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -100,9 +103,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': ('db1'),
-        'USER':'sptty',
-        'PASSWORD':'123',
+        'NAME': ('django'),
+        'USER':'root',
+        'PASSWORD':'root',
         'HOST':'127.0.0.1',
         'PORT':'3306',
     }

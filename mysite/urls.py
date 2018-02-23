@@ -39,7 +39,7 @@ from mysite.database.mysql import *
 from mysite.views import *
 
 # from django.conf.urls.defaults import *   # 这是老版本django的导入方法
-from django.conf.urls import patterns,include,url  # django 1.9 的方法
+from django.conf.urls import include,patterns  # django 1.9 的方法
 admin.autodiscover()
 
 # django1.9  高级url 配置规则

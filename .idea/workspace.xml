@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b353e710-e15d-456d-b845-896bec57ee05" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AI/fly.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AI/neuro_evolution.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mysite/news/models.py" />
@@ -39,8 +36,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/ex23.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/mirror.txt" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/test.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/mysite.iml" afterPath="$PROJECT_DIR$/.idea/mysite.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/database/mysql.py" afterPath="$PROJECT_DIR$/mysite/database/mysql.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysite/settings.py" afterPath="$PROJECT_DIR$/mysite/settings.py" />
@@ -629,6 +625,14 @@
       <option name="presentableId" value="Default" />
       <updated>2127868127753</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fri Feb 23 17:32:20     2018">
+      <created>1519378369417</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1519378369417</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -695,6 +699,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fri Feb 23 17:32:20     2018" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fri Feb 23 17:32:20     2018" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

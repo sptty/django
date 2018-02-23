@@ -7,7 +7,7 @@ from django.shortcuts import render_to_response
 
 
 def books_list(request):
-    db = MySQLdb.connect(user='sptty',db='db1',passwd='123',host='localhost')
+    db = MySQLdb.connect(user='root',db='django',passwd='root',host='localhost')
     cursor = db.cursor()
     cursor.execute('show tables')
     names = [row[0] for row in cursor.fetchall()]
