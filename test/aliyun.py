@@ -16,14 +16,14 @@ try:
 except ImportError:
     import pickle
 
-d = dict(url='index.html',title='首页',content='first_page')
+d = dict(url='index.html', title='首页', content='first_page')
 # print(str(pickle.dumps(d)))
 pickle.dumps(d)
-f = open(r'E:\\03.devops\\AI\\a.txt','ab')
-pickle.dump(d,f)
+f = open(r'E:\\03.devops\\AI\\a.txt', 'ab')
+pickle.dump(d, f)
 f.close()
 
-f = open(r'E:\\03.devops\\AI\\a.txt','rb')
+f = open(r'E:\\03.devops\\AI\\a.txt', 'rb')
 d = pickle.load(f)
 f.close()
 print(d['title'])

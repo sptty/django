@@ -7,5 +7,10 @@
       <first-sync>true</first-sync>
       <user-name>root</user-name>
     </data-source>
+    <data-source name="Django default" uuid="7a2fc6a5-cb64-4ee1-bf46-ecab0a2c91cf">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>root</user-name>
+    </data-source>
   </component>
 </project>
