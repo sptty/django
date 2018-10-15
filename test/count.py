@@ -74,7 +74,7 @@ print(u"已签约店家总量： %d" % all_data[0])
 print(u"已安装屏幕总量： %d" % all_data[1])
 print(u"预安装屏幕总量： %d" %  all_data[2])
 # print(u"平均每家店安装量： %f" % (already_install/shop_num))
-print(u"店铺屏幕总量： %d" % all_data[3])
+print(u"店铺镜面数总量： %d" % all_data[3])
 
 
 print('*'*40)
